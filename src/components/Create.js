@@ -2,11 +2,16 @@ import React, { useState } from 'react';
 
 // Create component
 const Create = () => {
+    // Adds state variables to functional components
+    // Stores data returned from an API and manages the state of the application by updating the title
     const [title, setTitle] = useState('');
+    const [year, setYear] = useState('');
+    const [poster, setPoster] = useState('');
 
+    // Logs data submited to the form to the console
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(title);
+        console.log(title, year, poster); // Logs data to the console
     }
 
     // Returns the relevant message
@@ -20,6 +25,18 @@ const Create = () => {
                         className="form-control"
                         value={title}
                         onChange={(e) => { setTitle(e.target.value) }}
+                    />
+                    <label>Add Movie Year: </label>
+                    <input type="text"
+                        className="form-control"
+                        value={year}
+                        onChange={(e) => { setYear(e.target.value) }}
+                    />
+                    <label>Add Movie Poster: </label>
+                    <input type="text"
+                        className="form-control"
+                        value={poster}
+                        onChange={(e) => { setPoster(e.target.value) }}
                     />
                 </div>
                 <input type="submit" value="Add Movie" />

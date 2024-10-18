@@ -7,15 +7,15 @@ import { useState } from 'react';
 // Read Component
 const Read = () => {
     // Adds state variables to functional components
-    // Stores data returned from an API and manages the state of the application.
+    // Stores data returned from an API and manages the state of the application by updating movies
     const [movies, setMovies] = useState([]);
 
     // React hook, useEffect, to synchronize a component with an external system
     // HTTP GET call returns the JSON data from
     useEffect(() => {
-        axios.get("https://jsonblob.com/api/jsonblob/1287718524221775872").then((responce) => {
+        axios.get("https://jsonblob.com/api/jsonblob/1287718524221775872").then((responce) => { // API Call
             console.log(responce.data); // Log Obj to the console
-            setMovies(responce.data.movies) // 
+            setMovies(responce.data.movies) // Sets the state
         }).catch()
     }, []);
 
